@@ -1,4 +1,15 @@
-fetch('prices.json')
+window.onload = function() {
+  setTimeout(function() {
+    hideLoader();
+    addContent();
+  }, 5000);
+}
+
+function hideLoader() {
+  document.getElementById('preload').style.display = "none";
+}
+function addContent() {
+  fetch('prices.json')
   .then(response => response.json())
   .then(items => {
     // Select a random item from the list
@@ -32,3 +43,5 @@ fetch('prices.json')
   .catch(error => {
     console.log('Error loading image data: ' + error);
   });
+
+}
